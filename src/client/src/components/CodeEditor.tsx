@@ -5,6 +5,8 @@ import AceEditor from 'react-ace';
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-beautify";
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/theme-github';
 
 const CodeEditor = ({codeData}:{codeData:string}) => {
   const [code, setCode] = useState<string>(codeData);
@@ -29,7 +31,13 @@ const CodeEditor = ({codeData}:{codeData:string}) => {
   };
 useEffect(() => {
   handleFormat()
-},[code])
+},[code,codeData])
+
+  useEffect(() => {
+    if(code!=codeData){
+      setCode(codeData);
+    }
+  }, [codeData]);
   return (
     <div style={{ height: '90vh', padding: '1rem' }}>
 
@@ -47,6 +55,8 @@ useEffect(() => {
         showGutter={true}
         highlightActiveLine={true}
         value={code}
+        wrapEnabled={true}
+        readOnly={true}
         setOptions={{
           enableBasicAutocompletion: true,
           enableLiveAutocompletion: true,
@@ -54,6 +64,7 @@ useEffect(() => {
           enableMobileMenu: true,
           showLineNumbers: true,
           tabSize: 2,
+          wrap: true,
         }} />
     </div>
   );
