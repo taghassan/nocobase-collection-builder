@@ -1,0 +1,17 @@
+{
+  "name": "@zero-to-100/collection-builder",
+  "version": "0.1.0",
+  "main": "dist/server/index.js",
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "ace-builds": "^1.41.0",
+    "monaco-editor": "^0.52.2",
+    "object-hash": "^3.0.0",
+    "react-ace": "^14.0.1"
+  },
+  "peerDependencies": {
+    "@nocobase/client": "1.x",
+    "@nocobase/server": "1.x",
+    "@nocobase/test": "1.x"
+  }
+}
