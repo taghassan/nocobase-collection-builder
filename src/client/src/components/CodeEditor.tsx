@@ -2,45 +2,41 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Editor from '@monaco-editor/react';
 import AceEditor from 'react-ace';
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-monokai";
-import "ace-builds/src-noconflict/ext-beautify";
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/theme-monokai';
+import 'ace-builds/src-noconflict/ext-beautify';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-github';
 
-const CodeEditor = ({codeData}:{codeData:string}) => {
+const CodeEditor = ({ codeData }: { codeData: string }) => {
   const [code, setCode] = useState<string>(codeData);
   const editorRef = useRef(null);
 
   const handleEditorChange = (value) => {
     setCode(value || '');
-
   };
 
-  const onLoad = () => {
-
-  };
+  const onLoad = () => {};
 
   const handleFormat = () => {
     try {
       const formatted = JSON.stringify(JSON.parse(code), null, 2);
       setCode(formatted);
     } catch (err) {
-      alert("Invalid JSON format");
+      alert('Invalid JSON format');
     }
   };
-useEffect(() => {
-  handleFormat()
-},[code,codeData])
+  useEffect(() => {
+    handleFormat();
+  }, [code, codeData]);
 
   useEffect(() => {
-    if(code!=codeData){
+    if (code != codeData) {
       setCode(codeData);
     }
   }, [codeData]);
   return (
     <div style={{ height: '90vh', padding: '1rem' }}>
-
       <AceEditor
         ref={editorRef}
         placeholder="Placeholder Text"
@@ -65,7 +61,8 @@ useEffect(() => {
           showLineNumbers: true,
           tabSize: 2,
           wrap: true,
-        }} />
+        }}
+      />
     </div>
   );
 };

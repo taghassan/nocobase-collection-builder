@@ -24,13 +24,11 @@ import { ArrayTable } from '@formily/antd-v5';
 import useDialect from '@nocobase/client/es/collection-manager/hooks/useDialect';
 import { useTranslation } from 'react-i18next';
 
-
 import CodeEditor from '../../CodeEditor';
 
 import hash from 'object-hash';
 
 // import * as components from '@nocobase/client/es/collection-manager/Configuration';
-
 
 const useSyncFromDatabase = () => {
   const form = useForm();
@@ -66,7 +64,7 @@ const useSyncFromDatabase = () => {
 const FieldAttributesForm = (props: { selectedItem: CollectionFieldInterface }) => {
   const { selectedItem } = props;
   // @ts-ignore
-  const { scope, getContainer,  children, trigger, align, database } = props;
+  const { scope, getContainer, children, trigger, align, database } = props;
 
   const record = useRecord();
 
@@ -102,7 +100,6 @@ const FieldAttributesForm = (props: { selectedItem: CollectionFieldInterface }) 
         };
       });
   }, [fields?.length]);
-
 
   return (
     <>
@@ -153,19 +150,16 @@ const FieldAttributesForm = (props: { selectedItem: CollectionFieldInterface }) 
           disabledJSONB: false,
           scopeKeyOptions,
           editMainOnly: true,
-          useAsyncDataSource:useAsyncDataSource,
+          useAsyncDataSource: useAsyncDataSource,
 
           // ...scope,
-          ...selectedItem?.default
+          ...selectedItem?.default,
         }}
       />
 
       <div>
-
-        <CodeEditor codeData={JSON.stringify(selectedItem?.properties)}  />
-        <CodeEditor codeData={JSON.stringify(selectedItem?.default)}  />
-
-
+        <CodeEditor codeData={JSON.stringify(selectedItem?.properties)} />
+        <CodeEditor codeData={JSON.stringify(selectedItem?.default)} />
       </div>
     </>
   );
