@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "main": "dist/server/index.js",
   "dependencies": {
+    "@dnd-kit/modifiers": "^9.0.0",
+    "@dnd-kit/sortable": "^10.0.0",
     "@monaco-editor/react": "^4.7.0",
     "ace-builds": "^1.41.0",
     "monaco-editor": "^0.52.2",
