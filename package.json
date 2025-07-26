@@ -1,5 +1,7 @@
 {
   "name": "@zero-to-100/collection-builder",
+  "displayName": "Collection Builder",
+  "description": "NocoBase Collection Builder.",
   "version": "0.1.0",
   "main": "dist/server/index.js",
   "dependencies": {
